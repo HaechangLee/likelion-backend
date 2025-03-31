@@ -45,9 +45,10 @@ public class CompleteFutureTestService {
                 log.info(s);
             }
         };
-        CompletableFuture.supplyAsync(/* TODO */)
-                .thenApply(/* TODO */)
-                .thenAccept(/* TODO */);
+        CompletableFuture.supplyAsync(heavyTask)
+                .thenApply(plusTask)
+                .thenAccept(consume);
+
     }
 
     public String getHelloSync() {
@@ -82,7 +83,7 @@ public class CompleteFutureTestService {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            return "Hello";
+            return "Hello from thread" + Thread.currentThread().getName();
         }, customFutureThreadPoolExecutor);
     }
 

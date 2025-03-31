@@ -24,4 +24,15 @@ public class CompleteFutureTestContorller {
     public void hello() {
         helloService.getGroupHello();
     }
+
+
+    @GetMapping("/hello/groupsync")
+    public void sayGroupHello() {
+        helloService.getGroupHelloSync();
+    }
+
+    @GetMapping("/hello/groupsyncthreadpool")
+    public void sayGroupHelloThread() {
+        helloService.getGroupHelloWitThreadPool();
+    }
 }
