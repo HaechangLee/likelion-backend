@@ -23,11 +23,13 @@ public class EnvApplicationPlaygroundService {
 
     public String getCustomValue() {
         // TODO
+        return customEnvProperties.getEnv();
     }
 
 
     public String getServerPort() {
         // TODO
+        return serverPortProperties.getPort();
     }
 
 }

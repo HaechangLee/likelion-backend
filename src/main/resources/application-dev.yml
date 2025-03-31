@@ -10,10 +10,13 @@ server:
 
 
 spring:
+  config:
+    import: optional:file:.env[.properties]
   application:
     name: likelion-backend
 
 custom:
-  env: dev
-#  env: ${CUSTOM_ENV:dev}
+#  env: dev
+  port: ${PORT:8080}
+  env: ${CUSTOM_ENV:dev}
 
