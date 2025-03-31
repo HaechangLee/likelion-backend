@@ -3,8 +3,6 @@ package com.inspire12.likelionbackend.module.core.resource.controller;
 
 import com.inspire12.likelionbackend.module.core.resource.model.ResourceRequest;
 import com.inspire12.likelionbackend.module.core.resource.service.ResourceService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,11 +20,11 @@ public class ResourceController {
     }
 
     @GetMapping("/load")
-    public String load(String resourceName) throws IOException {
-        return resourceService.load(resourceName);
-//        return ResponseEntity.ok()
-//                .contentType(MediaType.TEXT_PLAIN)
-//                .body(resourceService.load(resourceName));
+    public ResponseEntity<String> load(String resourceName) throws IOException {
+//        return resourceService.load(resourceName);
+        return ResponseEntity.ok()
+                .contentType(MediaType.TEXT_PLAIN)
+                .body(resourceService.load(resourceName));
     }
 
     @PostMapping("/write")
