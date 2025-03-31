@@ -21,7 +21,7 @@ public class DataController { // 뜬금 질문, 제가 왜 클래스명을 RestC
     private Logger log = LoggerFactory.getLogger(this.getClass().getName());
 
     @GetMapping("/throw")
-    public ResponseEntity<OrderResponse> throwException(HttpServletRequest request) {
+    public ResponseEntity<OrderResponse> throwException(HttpServletRequest request) throws LikelionException {
         throw new LikelionException();
     }
 
