@@ -25,10 +25,15 @@ public class ResourceService {
 
     public String load(String resourceName) throws IOException {
         // TODO /resource/file/likelion.txt 파일 문구를 리턴
+        Resource resource = resourceLoader.getResource("classpath:file/likelion.txt");
+        InputStream inputStream = resource.getInputStream();
+        String value = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+        return value;
     }
 
     public byte[] loadImage() throws FileNotFoundException {
-        // TODO load를 구현하신 분은 추가로 /resource/file/oh.jpg 이미지 파일 리턴을 해보세요
+        // TODO load를 구현하신 분은 추가로 /
+        //  resource/file/oh.jpg 이미지 파일 리턴을 해보세요
     }
 
 }
