@@ -1,5 +1,6 @@
 package com.inspire12.likelionbackend.module.jpa.service;
 
+import com.inspire12.likelionbackend.module.jpa.model.dto.OrderSum;
 import com.inspire12.likelionbackend.module.jpa.model.entity.OrderEntity;
 import com.inspire12.likelionbackend.module.jpa.model.mapper.OrderMapper;
 import com.inspire12.likelionbackend.module.jpa.model.request.OrderRequest;
@@ -57,6 +58,8 @@ public class OrderService {
 
     public OrderSumResponse getOrderSum(Long customerId) {
         // TODO
-        throw new UnsupportedOperationException();
+        OrderSum orderSum = orderJpaRepository.sumAmountByUserId(customerId);
+        return new OrderSumResponse(orderSum.getCustomerId(), orderSum.getCount());
+//        throw new UnsupportedOperationException();
     }
 }

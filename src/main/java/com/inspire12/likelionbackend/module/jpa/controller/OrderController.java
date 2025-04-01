@@ -58,8 +58,8 @@ public class OrderController {
 
     @GetMapping("/sum")
     public ResponseEntity<OrderSumResponse> getOrderSum(@RequestParam Long customerId) {
-        OrderSumResponse orderSummaries = orderService.getOrderSum(customerId);
-        return ResponseEntity.ok(orderSummaries);
+        OrderSumResponse orderSum = orderService.getOrderSum(customerId);
+        return ResponseEntity.ok(orderSum);
     }
 
 }
