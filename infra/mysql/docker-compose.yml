@@ -2,6 +2,7 @@ services:
   mysql:
     image: mysql:8.0
     #    restart: always
+    #    볼륰 설정을 통해 외부에서 주입가능
     volumes:
       - ./my.cnf:/etc/mysql/conf.d/my.cnf
       - ./sql:/docker-entrypoint-initdb.d

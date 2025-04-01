@@ -32,3 +32,7 @@ SELECT customer_id, AVG(total_amount) AS avg_order_amount
 FROM orders
 WHERE customer_id = 1
 GROUP BY customer_id;
+
+select * from orders order by total_amount desc limit 10 offset 5;
+
+truncate table orders;
