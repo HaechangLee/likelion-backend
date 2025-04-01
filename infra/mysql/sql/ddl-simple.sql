@@ -22,4 +22,6 @@ SELECT * FROM orders WHERE total_amount > 19000;
 
 UPDATE orders SET total_amount = 25000 WHERE id = 2;
 
-DELETE FROM orders WHERE id = 1;
+DELETE FROM orders WHERE id = 2;
+
+truncate table orders;
