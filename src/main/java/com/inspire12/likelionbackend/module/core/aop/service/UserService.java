@@ -11,15 +11,20 @@ public class UserService {
 
     private static final Logger log = LoggerFactory.getLogger(UserService.class.getName());
 
+    // annotation 방식으로 aop 설정
     @LogExecutionTime
     @UserInputValidate
     public void registerUser(String username, String email) { // 변경됨
         log.info("DB에 사용자 저장 로직 실행");
     }
 
+    /*
+    아래 내용이 @LogExecutionTime과 @UserInputValidate 으로 이동
+     */
     private void logStartExecutionTime(String username) {
         log.info("사용자 등록 시작 - username: {}", username);
     }
+
 
     private void logEndExecutionTime(String username, long executionTime) {
         log.info("사용자 등록 완료 - username: {} {}", username, executionTime);
