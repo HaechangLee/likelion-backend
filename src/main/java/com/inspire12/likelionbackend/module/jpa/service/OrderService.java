@@ -76,19 +76,13 @@ public class OrderService {
 
 
     public OrderListResponse getOrderByPager(Pageable pageable) {
-//        /**  TODO **/
-//        String jpql = "SELECT o FROM OrderEntity o order by o." + sortBy + " " + direction;
-//        List<OrderEntity> resultList = em.createQuery(jpql, OrderEntity.class)
-//                .setFirstResult(page * size)
-//                .setMaxResults(size)
-//                .getResultList();
-//        List<OrderResponse> orderResponses = new ArrayList<>();
-//        for (OrderEntity orderEntity : resultList) {
-//            orderResponses.add(OrderMapper.fromEntity(orderEntity));
-//        }
+
+        /**  TODO **/
         Page<OrderEntity> resultList = orderJpaRepository.findAll(pageable);
+
+        List<OrderEntity> content = resultList.getContent();
         List<OrderResponse> orderResponses = new ArrayList<>();
-        for (OrderEntity orderEntity : resultList) {
+        for (OrderEntity orderEntity : content) {
             orderResponses.add(OrderMapper.fromEntity(orderEntity));
         }
         return new OrderListResponse(orderResponses);
