@@ -6,6 +6,9 @@ import com.inspire12.likelionbackend.module.jpa.model.response.OrderResponse;
 import com.inspire12.likelionbackend.module.jpa.model.response.OrderSumResponse;
 import com.inspire12.likelionbackend.module.jpa.model.response.OrderSummaryResponse;
 import com.inspire12.likelionbackend.module.jpa.service.OrderService;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,14 +31,22 @@ public class OrderController {
 
 
     // 주문 조회 API
+//    @GetMapping
+//    public ResponseEntity<OrderListResponse> getOrder(
+//            @RequestParam(defaultValue = "0") int page, //TODO
+//            @RequestParam(defaultValue = "10") int size, //TODO
+//            @RequestParam(defaultValue = "id") String sort, //TODO
+//            @RequestParam(defaultValue = "asc") String direction //TODO
+//    ) {
+//        OrderListResponse orderByPager = orderService.getOrderByPager(page, size, sort, direction); //TODO
+//
+//        return ResponseEntity.ok(orderByPager);
+//    }
     @GetMapping
     public ResponseEntity<OrderListResponse> getOrder(
-            @RequestParam(defaultValue = "0") int page, //TODO
-            @RequestParam(defaultValue = "10") int size, //TODO
-            @RequestParam(defaultValue = "id") String sort, //TODO
-            @RequestParam(defaultValue = "asc") String direction //TODO
-    ) {
-        OrderListResponse orderByPager = orderService.getOrderByPager(page, size, sort, direction); //TODO
+            @PageableDefault(page = 0,size = 10, sort = {"id"}, direction = Sort.Direction.DESC)
+            Pageable pageable)  {
+        OrderListResponse orderByPager = orderService.getOrderByPager(pageable); //TODO
 
         return ResponseEntity.ok(orderByPager);
     }
