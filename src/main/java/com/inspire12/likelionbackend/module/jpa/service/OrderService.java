@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -81,10 +82,12 @@ public class OrderService {
 
     public OrderListResponse getOrderItemsByPager(Pageable pageRequest) {
         Page<OrderEntity> all = orderJpaRepository.findAll(pageRequest);
-        List<OrderResponse> orderResponses = new ArrayList<>();
-        for (OrderEntity orderEntity : all) {
-            orderResponses.add(OrderMapper.fromEntity(orderEntity));
-        }
+//        List<OrderResponse> orderResponses = new ArrayList<>();
+//        for (OrderEntity orderEntity : all) {
+//            orderResponses.add(OrderMapper.fromEntity(orderEntity));
+//        }
+        List<OrderResponse> orderResponses = all.stream().map(OrderMapper::fromEntity).collect(Collectors.toList());
         return new OrderListResponse(orderResponses);
     }
 }
+
