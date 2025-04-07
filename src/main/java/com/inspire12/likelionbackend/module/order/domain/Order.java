@@ -34,5 +34,10 @@ public class Order {
 
     public void approvePayment(boolean isPaymentSuccess) {
         // TODO
+        if(isPaymentSuccess) {
+            setOrderStatus(OrderStatus.SUCCESS_PAYMENT);
+        } else {
+            setOrderStatus(OrderStatus.FAIL_PAYMENT);
+        }
     }
 }
