@@ -1,6 +1,7 @@
-package com.inspire12.likelionbackend.module.order.domain;
+package com.inspire12.likelionbackend.module.order.application.service;
 
 
+import com.inspire12.likelionbackend.module.order.domain.Order;
 import org.springframework.stereotype.Repository;
 
 @Repository

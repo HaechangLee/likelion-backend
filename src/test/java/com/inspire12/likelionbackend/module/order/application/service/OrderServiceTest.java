@@ -3,7 +3,6 @@ package com.inspire12.likelionbackend.module.order.application.service;
 import com.inspire12.likelionbackend.module.order.application.dto.OrderRequest;
 import com.inspire12.likelionbackend.module.order.application.port.out.PaymentPort;
 import com.inspire12.likelionbackend.module.order.domain.Order;
-import com.inspire12.likelionbackend.module.order.domain.OrderRepository;
 import com.inspire12.likelionbackend.module.order.enums.OrderStatus;
 import com.inspire12.likelionbackend.module.payment.application.service.PaymentProcessOrderUsecase;
 import com.inspire12.likelionbackend.testure.OrderMockScenario;

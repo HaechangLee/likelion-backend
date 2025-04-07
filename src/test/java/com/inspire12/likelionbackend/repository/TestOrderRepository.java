@@ -1,7 +1,7 @@
 package com.inspire12.likelionbackend.repository;
 
 import com.inspire12.likelionbackend.module.order.domain.Order;
-import com.inspire12.likelionbackend.module.order.domain.OrderRepository;
+import com.inspire12.likelionbackend.module.order.application.service.OrderRepository;
 
 public class TestOrderRepository implements OrderRepository {
 
